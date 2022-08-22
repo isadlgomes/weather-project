@@ -46,14 +46,14 @@ function displayCity(response) {
   let formattedSunrise = new Date(sunrise * 1000).toLocaleTimeString("en-GB");
   console.log(formattedSunrise);
   let showSunrise = document.querySelector("#sunrise");
-  showSunrise.innerHTML = `${formattedSunrise} -`;
+  showSunrise.innerHTML = `${formattedSunrise}h`;
 
   let sunset = response.data.sys.sunset;
   console.log(sunset);
   let formattedSunset = new Date(sunset * 1000).toLocaleTimeString("en-GB");
   console.log(formattedSunset);
   let showSunset = document.querySelector("#sunset");
-  showSunset.innerHTML = ` ${formattedSunset}`;
+  showSunset.innerHTML = `${formattedSunset}h`;
 
   let wind = response.data.wind.speed;
   let showWind = document.querySelector("#wind");
