@@ -31,18 +31,17 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <div class="card border-light h-90 my-card" style="border-radius: 30px">
+          <div class="card border-light h-80 my-card" style="border-radius: 30px">
             <div class="card-header">
               Location
             </div>
-            <div class="card-body">
-              <h4 id="show-city">--</h4>
-              <h5 id="show-country">--</h5>
+            <div class="card-city">
+              <h3 id="show-city">Lisbon</h3>
+              <h5 id="show-country">PT</h5>
               <p class="card-details">
+                <img src="images/wind.png" alt="wind" width="12%"/><span id="wind"> Wind speed: 10 m/s</span>
                 </br>
-                <i class="fa-solid fa-wind"></i><span id="wind"> Wind speed: -- m/s</span>
-                </br>
-                <i class="fa-solid fa-bolt"></i><span id="humidity"> Humidity level: -- %</span>
+                <img src="images/humidity.png" alt="humidity" width="12%"/><span id="humidity"> Humidity level: 88 %</span>
               </p>
               
             </div>
@@ -52,33 +51,34 @@
           <div class="card border-light h-100 my-card" style="border-radius: 30px">
             <div class="card-header" id="current-time"> 
             </div>
-            <img src="images/sunny.png" class="card-img mx-auto" alt="weather" style="width: 40%;">
-            <div class="card-img-overlay">
-              <h2 id="weather-status">--</h2>
-                <h2 class="current-temp" id="current-temp">--ºC</h2>
-                  <a href="#" class="card-cel" id="celsius">ºC</a> ⇋
-                  <a href="#" class="card-fah" id="fahrenheit">ºF</a>
+            <div class="card-weather">
+              <img class="overlay-img" src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" id="icon"/>
+              <div class="overlay-text">
+                <h3 id="weather-status">Clear Sky</h3>
+                <h3 class="current-temp" id="current-temp">25ºC</h3>
+                <a href="#" class="card-cel" id="celsius">ºC</a> ⇋
+                <a href="#" class="card-fah" id="fahrenheit">ºF</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="card border-light h-90 my-card" style="border-radius: 30px">
+          <div class="card border-light h-80 my-card" style="border-radius: 30px">
             <div class="card-header" id="sunrise-sunset">
               Sunrise & Sunset
             </div>
             <div class="card-body">
-              <img src="images/sun-traject.jpg" class="sun mx-auto" alt="sun" style="width: 90%">
-              <span class="card-details" id="sunrise">Sunrise</span>
-              <span class="card-details" id="sunset">Sunset</span>
-
+              <img src="images/sun-traject.jpg" class="sun mx-auto" alt="sun-path" width="80%">
+              <span class="card-details" id="sunrise">07:01:45h</span>
+              <span class="card-details" id="sunset">20:05:30h</span>
             </div>
           </div>
         </div>
       </div>
       <div class="days">
-        <h3>
+        <h2>
           5-Day Weather Forecast
-        </h3>
+        </h2>
       </div>
       <div class="row row-cols-10">
         <div class="col">
@@ -86,7 +86,7 @@
             <div class="card-header" id="firstday">
               Tue 26/07
             </div>
-            <img src="images/cloudy.png" class="card-img mx-auto" alt="cloudy" style="width: 40%">
+            <img src="images/01d.png" class="card-img mx-auto" alt="cloudy" style="width: 40%">
             <div class="card-body">
               <h5 class="card-title text-center">26ºC</h5>
             </div>
@@ -97,7 +97,7 @@
             <div class="card-header" id="secondday">
               Wed 27/07
             </div>
-            <img src="images/sun-cloudy.png" class="card-img mx-auto" alt="sun-cloudy" style="width: 40%">
+            <img src="images/02d.png" class="card-img mx-auto" alt="sun-cloudy" style="width: 40%">
             <div class="card-body">
               <h5 class="card-title text-center">24ºC</h5>
             </div>
@@ -108,7 +108,7 @@
             <div class="card-header" id="thirdday">
               Thu 28/07
             </div>
-            <img src="images/rainy.png" class="card-img mx-auto" alt="rainy" style="width: 40%">
+            <img src="images/03d.png" class="card-img mx-auto" alt="rainy" style="width: 40%">
             <div class="card-body">
               <h5 class="card-title text-center">26ºC</h5>
             </div>
@@ -119,7 +119,7 @@
             <div class="card-header" id="fourthday">
               Fri 29/07
             </div>
-            <img src="images/sunny.png" class="card-img mx-auto" alt="sunny" style="width: 40%">
+            <img src="images/09d.png" class="card-img mx-auto" alt="sunny" style="width: 40%">
             <div class="card-body">
               <h5 class="card-title text-center">29ºC</h5>
             </div>
@@ -130,7 +130,7 @@
             <div class="card-header" id="fifthday">
               Sat 30/07
             </div>
-            <img src="images/cloudy.png" class="card-img mx-auto" alt="cloudy" style="width: 40%">
+            <img src="images/11d.png" class="card-img mx-auto" alt="cloudy" style="width: 40%">
             <div class="card-body">
               <h5 class="card-title text-center">25ºC</h5>
             </div>

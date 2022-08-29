@@ -36,13 +36,31 @@ function displayCity(response) {
   let displayCountry = document.querySelector("#show-country");
   displayCountry.innerHTML = `${countryName}`;
 
+  let wind = response.data.wind.speed;
+  let showWind = document.querySelector("#wind");
+  showWind.innerHTML = ` Wind speed: ${wind} m/s`;
+
+  let humidity = response.data.main.humidity;
+  let showHumidity = document.querySelector("#humidity");
+  showHumidity.innerHTML = ` Humidity: ${humidity} %`;
+
   let weatherDescription = response.data.weather[0].description;
   let displayWeather = document.querySelector("#weather-status");
   displayWeather.innerHTML = `${weatherDescription}`;
 
+  celsiusTemperature = response.data.main.temp;
+
   let showTemperature = Math.round(response.data.main.temp);
   let displayTemp = document.querySelector("#current-temp");
   displayTemp.innerHTML = `${showTemperature}ºC`;
+
+  let icon = response.data.weather[0].icon;
+  let showIcon = document.querySelector("#icon");
+  showIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  showIcon.setAttribute("alt", weatherDescription);
 
   let sunrise = response.data.sys.sunrise;
   let formattedSunrise = new Date(sunrise * 1000).toLocaleTimeString("en-GB");
@@ -53,16 +71,6 @@ function displayCity(response) {
   let formattedSunset = new Date(sunset * 1000).toLocaleTimeString("en-GB");
   let showSunset = document.querySelector("#sunset");
   showSunset.innerHTML = `${formattedSunset}h`;
-
-  let wind = response.data.wind.speed;
-  let showWind = document.querySelector("#wind");
-  showWind.innerHTML = ` Wind speed: ${wind} m/s`;
-
-  let humidity = response.data.main.humidity;
-  let showHumidity = document.querySelector("#humidity");
-  showHumidity.innerHTML = ` Humidity: ${humidity} %`;
-
-  celsiusTemperature = response.data.main.temp;
 }
 
 function getFahrenheit(event) {
@@ -120,7 +128,6 @@ let button = document.querySelector("#btn-location");
 button.addEventListener("click", getPosition);
 
 let celsiusTemperature = null;
-
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", getFahrenheit);
 

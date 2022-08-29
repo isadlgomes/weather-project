@@ -15,13 +15,13 @@ h1 {
   display: block;
 }
 
-h3 {
+h2 {
   font-family: "Fredoka One", cursive;
   text-align: center;
   padding-top: 30px;
 }
 
-h2,
+h3,
 h5 {
   font-family: "Rubik", sans-serif;
   font-weight: 800;
@@ -84,19 +84,21 @@ h5 {
   padding: 30px 0;
 }
 
+.card-city {
+  padding: 10px 30px;
+}
+
 .col-sm-3 {
   padding-top: 60px;
-  padding-bottom: 20px;
 }
 
 .col-sm-6 {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .current-temp,
 .card-cel {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .days,
@@ -126,14 +128,31 @@ h5 {
   display: flex-end;
 }
 
-#showcity,
-#showcountry {
-  padding: 10px 10px;
+.card-weather img {
+  width: 30%;
+  position: relative;
+  right: -230px;
+}
+
+.card-weather .overlay-text {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+
+#show-city {
+  padding-top: 10px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+#show-country {
+  padding-bottom: 20px;
 }
 
 #weather-status {
-  padding-top: 40px;
-  padding-left: 20px;
+  padding-top: 30px;
+  padding-left: 30px;
   font-weight: 800;
   text-transform: capitalize;
 }
@@ -142,12 +161,12 @@ h5 {
   float: left;
   font-weight: bold;
   padding-left: 20px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 #sunset {
   float: right;
   font-weight: bold;
   padding-right: 20px;
-  font-size: 14px;
+  font-size: 18px;
 }
