@@ -32,7 +32,11 @@ function displayCity(response) {
   let displayCity = document.querySelector("#show-city");
   displayCity.innerHTML = `${cityName}`;
 
-  let weatherDescription = response.data.weather[0].main;
+  let countryName = response.data.sys.country;
+  let displayCountry = document.querySelector("#show-country");
+  displayCountry.innerHTML = `${countryName}`;
+
+  let weatherDescription = response.data.weather[0].description;
   let displayWeather = document.querySelector("#weather-status");
   displayWeather.innerHTML = `${weatherDescription}`;
 

@@ -20,24 +20,31 @@
   </head>
   <body>
     <h1>Weather Forecast</h1>
-    <form id="search-form">
-      <input class="search-bar" id="search-input" placeholder="Search by city 🔎"/>
-      <input class="btn-submit" type="submit" value="Submit"/>
-    </form>
-    <span>
+    <div class="search" align="center">
+      <form id="search-form">
+        <input class="search-bar" id="search-input" placeholder="Search by city 🔎"/>
+        <input class="btn-submit" type="submit" value="Submit"/>
+      </form>
       <button class="btn-location" id="btn-location">Current Location</button>
-    </span>
+    </div>
   </br>
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <div class="card border-light h-100 my-card" style="border-radius: 30px">
+          <div class="card border-light h-90 my-card" style="border-radius: 30px">
             <div class="card-header">
               Location
             </div>
             <div class="card-body">
-              <h4 class="card-city" id="show-city">--</h4>
-              <img src="images/maps.png" class="maps mx-auto" alt="google-maps" style="width: 80%">
+              <h4 id="show-city">--</h4>
+              <h5 id="show-country">--</h5>
+              <p class="card-details">
+                </br>
+                <i class="fa-solid fa-wind"></i><span id="wind"> Wind speed: -- m/s</span>
+                </br>
+                <i class="fa-solid fa-bolt"></i><span id="humidity"> Humidity level: -- %</span>
+              </p>
+              
             </div>
           </div>
         </div>
@@ -45,9 +52,9 @@
           <div class="card border-light h-100 my-card" style="border-radius: 30px">
             <div class="card-header" id="current-time"> 
             </div>
-            <img src="images/sunny.png" class="card-img mx-auto" alt="weather" style="width: 50%;">
+            <img src="images/sunny.png" class="card-img mx-auto" alt="weather" style="width: 40%;">
             <div class="card-img-overlay">
-              <h2 class="current-status" id="weather-status">--</h2>
+              <h2 id="weather-status">--</h2>
                 <h2 class="current-temp" id="current-temp">--ºC</h2>
                   <a href="#" class="card-cel" id="celsius">ºC</a> ⇋
                   <a href="#" class="card-fah" id="fahrenheit">ºF</a>
@@ -55,7 +62,7 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="card border-light h-100 my-card" style="border-radius: 30px">
+          <div class="card border-light h-90 my-card" style="border-radius: 30px">
             <div class="card-header" id="sunrise-sunset">
               Sunrise & Sunset
             </div>
@@ -63,13 +70,7 @@
               <img src="images/sun-traject.jpg" class="sun mx-auto" alt="sun" style="width: 90%">
               <span class="card-details" id="sunrise">Sunrise</span>
               <span class="card-details" id="sunset">Sunset</span>
-              <p class="card-details text-end">
-                </br>
-                </br>
-                <i class="fa-solid fa-wind"></i><span id="wind"> Wind speed</span>
-                </br>
-                <i class="fa-solid fa-bolt"></i><span id="humidity"> Humidity level</span>
-              </p>
+
             </div>
           </div>
         </div>

@@ -27,33 +27,46 @@ h5 {
   font-weight: 800;
 }
 
-.card-city {
-  padding: 10px 20px;
-}
-
 .search-bar {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 10px;
+  display: inline;
+  height: 38px;
   text-align: center;
-  width: 15%;
+  margin: 5px 5px;
+  padding: 10px 10px;
   border: 1px solid grey;
   border-radius: 20px;
   box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
 }
 
-.btn-submit,
-.btn-location {
-  display: flex;
-  margin: 0 auto;
+.btn-submit {
+  display: inline;
+  height: 40px;
+  text-align: center;
+  margin: 10px 0px;
+  padding: 5px 10px;
+  border: 1px solid #ffff;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px #f7f7f7;
   background: #e6b2ff;
   color: #fff;
-  border-radius: 20px;
-  padding: 5px 10px;
   font-family: "Rubik", sans-serif;
-  border: 1px solid #ffff;
   transition: all 200ms ease;
+}
+
+.btn-location {
+  display: inline;
+  height: 40px;
+  width: 150px;
+  text-align: center;
+  margin: 10px 0px;
+  padding: 5px 0px;
+  border: 1px solid #ffff;
+  border-radius: 20px;
   box-shadow: 10px 5px 5px #f7f7f7;
+  background: #79c2d0;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+  transition: all 200ms ease;
 }
 
 .btn-submit:hover,
@@ -81,12 +94,6 @@ h5 {
   padding-bottom: 20px;
 }
 
-.current-status {
-  padding-top: 40px;
-  padding-left: 20px;
-  font-weight: 800;
-}
-
 .current-temp,
 .card-cel {
   padding-left: 20px;
@@ -99,7 +106,6 @@ h5 {
   padding-bottom: 20px;
 }
 
-.maps,
 .sun {
   display: block;
   margin-left: auto;
@@ -111,6 +117,25 @@ h5 {
 .my-card {
   box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
   overflow: hidden;
+}
+
+.col-sm-3 {
+  width: auto;
+  height: fit-content;
+  padding-bottom: 0px;
+  display: flex-end;
+}
+
+#showcity,
+#showcountry {
+  padding: 10px 10px;
+}
+
+#weather-status {
+  padding-top: 40px;
+  padding-left: 20px;
+  font-weight: 800;
+  text-transform: capitalize;
 }
 
 #sunrise {
