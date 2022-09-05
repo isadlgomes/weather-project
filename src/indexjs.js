@@ -87,6 +87,33 @@ function getCelsius(event) {
   celsius.innerHTML = `${convertToCelsius}ºC`;
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row" align="center">`;
+
+  let daily = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  daily.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="card border-light h-100 my-card" style="border-radius: 30px">
+          <div class="card-header" id="firstday">
+            Tue 26/07
+          </div>
+          <div class="card-body" id="icon-temp">
+            <img src="" class="card-img mx-auto" alt="" width="40%">
+            <h5 class="card-title text-center">26ºC</h5>
+          </div>
+        </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 let now = new Date();
 let days = [
   "Sunday",
