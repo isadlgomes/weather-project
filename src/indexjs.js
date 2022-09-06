@@ -15,11 +15,11 @@ function showCity(event) {
   }
 }
 
-function getPosition() {
-  navigator.geolocation.getCurrentPosition(getGps);
+function currentLocation() {
+  navigator.geolocation.getCurrentPosition(getGeolocation);
 }
 
-function getGps(position) {
+function getGeolocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "7215c9c944cc81a60b6a870c43db8372";
@@ -71,6 +71,53 @@ function displayCity(response) {
   let formattedSunset = new Date(sunset * 1000).toLocaleTimeString("en-GB");
   let showSunset = document.querySelector("#sunset");
   showSunset.innerHTML = `${formattedSunset}h`;
+
+  locationForecast(response.data.coord);
+}
+
+function locationForecast(coordinates) {
+  let apiKey = "7215c9c944cc81a60b6a870c43db8372";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(displayForecast);
+}
+
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let weekday = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[weekday];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col">
+        <div class="card border-light h-100 my-card" style="border-radius: 30px">
+          <div class="card-header" id="day">${formatDay(forecastDay.dt)}</div>
+          <div class="card-body">
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" class="card-img" alt="${
+          forecastDay.weather[0].description
+        }"/>
+            <div class="show-forecasttemp">
+            <span id="temp-max">${Math.round(forecastDay.temp.max)}ºC</span>
+            <span id"temp-min">${Math.round(forecastDay.temp.min)}ºC</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getFahrenheit(event) {
@@ -86,33 +133,6 @@ function getCelsius(event) {
   let celsius = document.querySelector("#current-temp");
   celsius.innerHTML = `${convertToCelsius}ºC`;
 }
-
-function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row" align="center">`;
-
-  let daily = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  daily.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="col-2">
-        <div class="card border-light h-100 my-card" style="border-radius: 30px">
-          <div class="card-header" id="firstday">
-            Tue 26/07
-          </div>
-          <div class="card-body" id="icon-temp">
-            <img src="" class="card-img mx-auto" alt="" width="40%">
-            <h5 class="card-title text-center">26ºC</h5>
-          </div>
-        </div>
-      </div>`;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-displayForecast();
 
 let now = new Date();
 let days = [
@@ -152,7 +172,7 @@ let citySearch = document.querySelector("#search-form");
 citySearch.addEventListener("submit", showCity);
 
 let button = document.querySelector("#btn-location");
-button.addEventListener("click", getPosition);
+button.addEventListener("click", currentLocation);
 
 let celsiusTemperature = null;
 let fahrenheitLink = document.querySelector("#fahrenheit");
