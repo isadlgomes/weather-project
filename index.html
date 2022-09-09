@@ -13,8 +13,8 @@
       crossorigin="anonymous"
     />
    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noticia+Text:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6152ed8840.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -25,17 +25,17 @@
         <input class="search-bar" id="search-input" placeholder="Search by city 🔎"/>
         <input class="btn-submit" type="submit" value="Submit"/>
       </form>
-      <button class="btn-location" id="btn-location">Current Location</button>
+        <button class="btn-location" id="btn-location">Current Location</button>
     </div>
   </br>
     <div class="container">
-      <div class="row">
+      <div class="row" display="block">
         <div class="col-sm-3">
           <div class="card border-light h-80 my-card" style="border-radius: 30px">
             <div class="card-header">
               Location
             </div>
-            <div class="card-city">
+            <div class="card-location">
               <h3 id="show-city">Lisbon</h3>
               <h5 id="show-country">PT</h5>
               <p class="card-details">
@@ -43,7 +43,6 @@
                 </br>
                 <img src="images/humidity.png" alt="humidity" width="12%"/><span id="humidity"> Humidity level: 88 %</span>
               </p>
-              
             </div>
           </div>
         </div>
@@ -56,8 +55,8 @@
               <div class="overlay-text">
                 <h3 id="weather-status">Clear Sky</h3>
                 <h3 class="current-temp" id="current-temp">25ºC</h3>
-                <a href="#" class="card-cel" id="celsius">ºC</a> ⇋
-                <a href="#" class="card-fah" id="fahrenheit">ºF</a>
+                <a href="#" class="current-temp" id="celsius">ºC</a> ⇋
+                <a href="#" id="fahrenheit">ºF</a>
               </div>
             </div>
           </div>
@@ -79,7 +78,7 @@
       <div class="forecast-title">
         <h4>
           5-Day Weather Forecast
-        </h4></br>
+        </h4>
       </div>
       <div class="weather-forecast" id="forecast"></div>
     </div>

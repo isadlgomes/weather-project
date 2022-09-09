@@ -84,7 +84,15 @@ function locationForecast(coordinates) {
 function formatDay(time) {
   let date = new Date(time * 1000);
   let weekday = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   return days[weekday];
 }
 
@@ -102,14 +110,15 @@ function displayForecast(response) {
         <div class="card border-light h-100 my-card" style="border-radius: 30px">
           <div class="card-header" id="day">${formatDay(forecastDay.dt)}</div>
           <div class="card-body">
+            <div class="show-forecastdescription">${
+              forecastDay.weather[0].description
+            }</div>
             <img src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
-            }@2x.png" class="card-img" alt="${
-          forecastDay.weather[0].description
-        }"/>
-            <div class="show-forecasttemp">
-            <span id="temp-max">${Math.round(forecastDay.temp.max)}ºC</span>
-            <span id"temp-min">${Math.round(forecastDay.temp.min)}ºC</span>
+            }@2x.png" class="card-img"/>
+            <div class="show-forecasttemp" align="center">
+              <span id="temp-max">${Math.round(forecastDay.temp.max)}ºC</span>
+              <span id="temp-min">${Math.round(forecastDay.temp.min)}ºC</span>
             </div>
           </div>
         </div>
