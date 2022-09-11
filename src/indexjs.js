@@ -2,6 +2,18 @@ function formatTime(num) {
   return String(num).padStart(2, "0");
 }
 
+function currentLocation() {
+  navigator.geolocation.getCurrentPosition(getGeolocation);
+}
+
+function getGeolocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "7215c9c944cc81a60b6a870c43db8372";
+  let apiLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiLocation}`).then(displayCity);
+}
+
 function showCity(event) {
   event.preventDefault();
   let search = document.querySelector("#search-input");
@@ -13,18 +25,6 @@ function showCity(event) {
     let apiCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(`${apiCity}`).then(displayCity);
   }
-}
-
-function currentLocation() {
-  navigator.geolocation.getCurrentPosition(getGeolocation);
-}
-
-function getGeolocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "7215c9c944cc81a60b6a870c43db8372";
-  let apiLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiLocation}`).then(displayCity);
 }
 
 function displayCity(response) {
@@ -63,14 +63,18 @@ function displayCity(response) {
   showIcon.setAttribute("alt", weatherDescription);
 
   let sunrise = response.data.sys.sunrise;
-  let formattedSunrise = new Date(sunrise * 1000).toLocaleTimeString("en-GB");
+  let formattedSunrise = new Date(sunrise * 1000);
+  let sunriseHours = formattedSunrise.getHours();
+  let sunriseMinutes = formattedSunrise.getMinutes();
   let showSunrise = document.querySelector("#sunrise");
-  showSunrise.innerHTML = `${formattedSunrise}h`;
+  showSunrise.innerHTML = `${sunriseHours}:${sunriseMinutes}h`;
 
   let sunset = response.data.sys.sunset;
-  let formattedSunset = new Date(sunset * 1000).toLocaleTimeString("en-GB");
+  let formattedSunset = new Date(sunset * 1000);
+  let sunsetHours = formattedSunset.getHours();
+  let sunsetMinutes = formattedSunset.getMinutes();
   let showSunset = document.querySelector("#sunset");
-  showSunset.innerHTML = `${formattedSunset}h`;
+  showSunset.innerHTML = `${sunsetHours}:${sunsetMinutes}h`;
 
   locationForecast(response.data.coord);
 }
@@ -142,6 +146,8 @@ function getCelsius(event) {
   let celsius = document.querySelector("#current-temp");
   celsius.innerHTML = `${convertToCelsius}ºC`;
 }
+
+currentLocation();
 
 let now = new Date();
 let days = [
