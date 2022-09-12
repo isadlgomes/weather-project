@@ -1,6 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-image: url(https://github.com/isadlgomes/weather-project/blob/d887b9546347daf1f3c38509fec4d697125c9f40/images/jellyfish.jpg);
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
 }
 
 h1,
