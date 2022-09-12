@@ -139,8 +139,8 @@ h5 {
   left: 20px;
 }
 
-.card-img img {
-  width: 10%;
+.card-img {
+  transform: scale(0.7);
 }
 
 .show-forecastdescription {
