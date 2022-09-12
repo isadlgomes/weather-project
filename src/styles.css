@@ -1,8 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-image: url("images/jellyfish.jpg");
-  background-position: center center;
-  background-size: 120%;
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
 }
 
 h1,
